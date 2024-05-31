@@ -1,10 +1,9 @@
-const { MongoClient } = require("mongodb");
-
 const connectDB = async () => {
-  const dbUrl =
-    "mongodb+srv://mangodbms:vikaash123@vikashcluster.8nm3s.mongodb.net/ecommerce";
+  const dbUrl = process.env.DB_URL;
+
   try {
-    const client = await MongoClient.connect(dbUrl);
+    console.log("DB URL:", dbUrl); // Debugging: Log the DB URL
+    const client = await MongoClient.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true });
     console.log("DB Connected");
     return client.db(); // Return the db object for further usage
   } catch (error) {
@@ -12,4 +11,5 @@ const connectDB = async () => {
     throw error;
   }
 };
+
 module.exports = connectDB;
