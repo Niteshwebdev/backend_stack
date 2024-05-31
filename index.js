@@ -14,7 +14,7 @@ const { Loginapi } = require("./Api/loginapi");
 // const { Logoutapi } = require("./Api/logoutapi");
 
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 // Secret key generation
 // const secretKey = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
