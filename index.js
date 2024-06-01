@@ -15,7 +15,7 @@ const { Loginapi } = require("./Api/loginapi");
 // const { Logoutapi } = require("./Api/logoutapi");
 
 const app = express();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 10000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
