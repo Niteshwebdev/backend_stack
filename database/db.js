@@ -1,9 +1,11 @@
-const connectDB = async () => {
-  const dbUrl = process.env.DB_URL;
+const { MongoClient } = require("mongodb");
+require('dotenv').config()
 
+const connectDB = async () => {
+  const dbUrl =
+   process.env.DB_URL 
   try {
-    console.log("DB URL:", dbUrl); // Debugging: Log the DB URL
-    const client = await MongoClient.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true });
+    const client = await MongoClient.connect(dbUrl);
     console.log("DB Connected");
     return client.db(); // Return the db object for further usage
   } catch (error) {
@@ -11,5 +13,4 @@ const connectDB = async () => {
     throw error;
   }
 };
-
 module.exports = connectDB;
